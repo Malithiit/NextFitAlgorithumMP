@@ -22,7 +22,7 @@ This project implements the *Next Fit Memory Allocation Algorithm* using Python 
 ## Usage
 1. Run the Python script to start the application:
    bash
-   python next_fit_allocator.py
+   python NextFit.py
    
 2. Interact with the GUI to:
    - Allocate memory to processes.
@@ -30,7 +30,7 @@ This project implements the *Next Fit Memory Allocation Algorithm* using Python 
    - View the current memory state and allocation details.
 
 ## Code Structure
-- *next_fit_allocator.py*: Contains the implementation of the Next Fit memory allocation algorithm along with the GUI.
+- NextFit.py: Contains the implementation of the Next Fit memory allocation algorithm along with the GUI.
 
 ## GUI Features
 - *Allocate Process*: Allocate memory to a process by entering its name and required size.

@@ -2,12 +2,13 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import simpledialog
 
+#Represents a memory block with size, free space, and allocation
 class MemoryBlock:
     def __init__(self, size):
         self.size = size
         self.free = size
         self.allocated_to = None
-
+#Allocates memory using Next Fit strategy, starting from last index
 class NextFitAllocator:
     def __init__(self, blocks):
         self.blocks = blocks
@@ -30,7 +31,7 @@ class NextFitAllocator:
             index = (index + 1) % n
             if index == startindex:
                 return False
-
+#Deallocates memory for process, resetting allocated space to free
     def deallocate(self, nameofprocess):
         for block in self.blocks:
             if block.allocated_to == nameofprocess:
@@ -38,7 +39,7 @@ class NextFitAllocator:
                 block.allocated_to = None
                 return True
         return False
-
+#Displays memory status of blocks, showing allocation and free space
     def DisplayMemoryStatus(self):
         MemoryStatus = []
         for i, block in enumerate(self.blocks):
@@ -46,6 +47,7 @@ class NextFitAllocator:
             MemoryStatus.append(f"Block {i + 1}: {block.free} KB free ({status}).")
         return MemoryStatus
 
+# Displays allocation details, showing allocated size and corresponding process
     def display_allocation_details(self):
         allocation_details = []
         for i, block in enumerate(self.blocks):
@@ -53,7 +55,7 @@ class NextFitAllocator:
                 allocated_size = block.size - block.free
                 allocation_details.append(f"Process {block.allocated_to}: Allocated {allocated_size} KB in Block {i + 1}.")
         return allocation_details
-
+#GUI for memory management with allocation, deallocation, and status display
 class MemoryManagerGUI:
     def __init__(self, master):
         self.master = master
@@ -126,7 +128,8 @@ class MemoryManagerGUI:
         else:
             final_state = "No processes are currently allocated."
         messagebox.showinfo("Final Memory Allocation", final_state)
-
+        
+#Runs the Memory Manager GUI application using Tkinter main event loop
 if __name__ == "__main__":
     root = tk.Tk()
     app = MemoryManagerGUI(root)
