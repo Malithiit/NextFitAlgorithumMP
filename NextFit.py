@@ -59,7 +59,7 @@ class MemoryManagerGUI:
         self.master = master
         self.master.title("Memory Manager")
 
-        self.block_sizes = [200, 300, 100, 500, 50]
+        self.block_sizes = [200, 300, 100, 500, 50,]
         self.blocks = [MemoryBlock(size) for size in self.block_sizes]
         self.allocator = NextFitAllocator(self.blocks)
 
